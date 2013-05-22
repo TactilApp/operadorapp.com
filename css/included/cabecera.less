@@ -1,0 +1,171 @@
+/* estilos de la cabecera */
+
+#cabecera{
+	position:fixed;
+	top:50px;
+	left:50%;
+
+	width: @anchura-9-maxima;
+	margin-left:-@anchura-9-maxima/2;
+
+	@media (max-width: @umbral-9){
+		width: @anchura-8;
+		margin-left:-@anchura-8/2;
+	}
+
+	@media (max-width: @umbral-8){
+		width: @anchura-7;
+		margin-left:-@anchura-7/2;
+	}
+
+	@media (max-width: @umbral-7){
+		width: @anchura-6;
+		margin-left:-@anchura-6/2;
+	}
+
+	@media (max-width: @umbral-6){
+		width: @anchura-5;
+		margin-left:-@anchura-5/2;
+	}
+
+	@media (max-width: @umbral-5){
+		width: @anchura-4;
+		margin-left:-@anchura-4/2;
+	}
+
+	@media (max-width: @umbral-4){
+		width: @anchura-3;
+		margin-left:-@anchura-3/2;
+	}
+
+	@media (max-width: @umbral-3){
+		width: @anchura-2;
+		margin-left:-@anchura-2/2;
+	}
+
+	@media (max-width: @umbral-2){
+		width: @anchura-1;
+		margin-left:-@anchura-1/2;
+	}
+}
+
+.lado, .centro{
+	position:relative;
+	display:inline-block;
+}
+
+.lado{
+	background-image: url('../img/bg_header_tile_x.png');
+	background-repeat: repeat-x;
+	background-position: bottom;
+	height:@altura-cabecera-lateral-9;
+	width: @anchura-cabecera-lateral-9;
+
+	@media (max-width: @umbral-9){
+		height:@altura-cabecera-lateral-8;
+		width: @anchura-cabecera-lateral-8;
+	}
+
+	@media (max-width: @umbral-8){
+		height:@altura-cabecera-lateral-7;
+		width: @anchura-cabecera-lateral-7;
+	}
+
+	@media (max-width: @umbral-7){
+		height:@altura-cabecera-lateral-6;
+		width: @anchura-cabecera-lateral-6;
+	}
+
+	@media (max-width: @umbral-6){
+		height:@altura-cabecera-lateral-5;
+		width: @anchura-cabecera-lateral-5;
+	}
+
+	@media (max-width: @umbral-5){
+		height:@altura-cabecera-lateral-4;
+		width: @anchura-cabecera-lateral-4;
+	}
+
+	@media (max-width: @umbral-4){
+		height:@altura-cabecera-lateral-3;
+		width: @anchura-cabecera-lateral-3;
+	}
+
+	@media (max-width: @umbral-3){
+		height:@altura-cabecera-lateral-2;
+		width: @anchura-cabecera-lateral-2;
+	}
+
+	@media (max-width: @umbral-2){
+		height:@altura-cabecera-lateral-1;
+		width: @anchura-cabecera-lateral-1;
+	}
+}
+
+.centro{
+	background-image: url('../img/bg_header.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	margin-left: -@anchura-cabecera-pico-9;
+	margin-right: -@anchura-cabecera-pico-9;
+	height:@altura-cabecera-centro-9;
+	width: @anchura-9-maxima - 2 * @anchura-cabecera-lateral-9;
+	z-index:1;
+
+	@media (max-width: @umbral-9){
+		margin-left: -@anchura-cabecera-pico-8;
+		margin-right: -@anchura-cabecera-pico-8;
+		height:@altura-cabecera-centro-8;
+		width: @anchura-8 - 2 * @anchura-cabecera-lateral-8;
+	}
+
+	@media (max-width: @umbral-8){
+		margin-left: -@anchura-cabecera-pico-7;
+		margin-right: -@anchura-cabecera-pico-7;
+		height:@altura-cabecera-centro-7;
+		width: @anchura-7 - 2 * @anchura-cabecera-lateral-7;
+	}
+
+	@media (max-width: @umbral-7){
+		margin-left: -@anchura-cabecera-pico-6;
+		margin-right: -@anchura-cabecera-pico-6;
+		height:@altura-cabecera-centro-6;
+		width: @anchura-6 - 2 * @anchura-cabecera-lateral-6;
+	}
+
+	@media (max-width: @umbral-6){
+		margin-left: -@anchura-cabecera-pico-5;
+		margin-right: -@anchura-cabecera-pico-5;
+		height:@altura-cabecera-centro-5;
+		width: @anchura-5 - 2 * @anchura-cabecera-lateral-5;
+	}
+
+	@media (max-width: @umbral-5){
+		margin-left: -@anchura-cabecera-pico-4;
+		margin-right: -@anchura-cabecera-pico-4;
+		height:@altura-cabecera-centro-4;
+		width: @anchura-4 - 2 * @anchura-cabecera-lateral-4;
+	}
+
+	@media (max-width: @umbral-4){
+		margin-left: -@anchura-cabecera-pico-3;
+		margin-right: -@anchura-cabecera-pico-3;
+		height:@altura-cabecera-centro-3;
+		width: @anchura-3 - 2 * @anchura-cabecera-lateral-3;
+	}
+
+	@media (max-width: @umbral-3){
+		margin-left: -@anchura-cabecera-pico-2;
+		margin-right: -@anchura-cabecera-pico-2;
+		height:@altura-cabecera-centro-2;
+		width: @anchura-2 - 2 * @anchura-cabecera-lateral-2;
+	}
+
+	@media (max-width: @umbral-2){
+		margin-left: -@anchura-cabecera-pico-1;
+		margin-right: -@anchura-cabecera-pico-1;
+		height:@altura-cabecera-centro-1;
+		width: @anchura-1 - 2 * @anchura-cabecera-lateral-1;
+	}
+}
