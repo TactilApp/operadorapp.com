@@ -1,70 +1,61 @@
-#div_numero_telefono{
-	background-color:#007C90;
+#div_numero_telefono, #div_captcha{
 	text-align:center;
 	padding:2%;
 	padding-top:1%;
 	margin:2% auto;
-	
+
 	input{
-		width:90%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
+    -moz-border-radius: @radio_input;
+    -webkit-border-radius: @radio_input;
+    border-radius: @radio_input;
     border: none;
-		margin:0 auto;
 		padding:10px 20px;
-		color:#777777;
-		
+		color:@color_input;
+
 		@media (max-width: @umbral-2){
-			width: 200px;
+			width: @anchura_input_minimo;
 			padding:10px;
 		}
+	}	
+}
+
+#div_numero_telefono{
+	background-color:@fondo_bloque_1;
+	
+	input{
+		width: @anchura_input;
+		margin:0 auto;
 	}
 }
 
 #div_captcha{
-	background-color:#00556B;
-	text-align:center;
-	padding:2%;
-	padding-top:1%;
-	margin:2% auto;
+	background-color:@fondo_bloque_2;
 
 	#captcha{
 		margin: 0 auto 10px;
-	}
-	
-	#captcha img{
-		width:80%;
-		@media (max-width: @umbral-2){
-			 width: 95%;
+
+		img{
+			width:@anchura_imagen_captcha;
+			@media (max-width: @umbral-2){
+				 width: @anchura_imagen_captcha_pantalla_pequenha;
+			}
 		}
 	}
 
 	#recargar{
-		width:5%;
+		width:@anchura_imagen_recargar;
 		height:auto;
 		cursor:hand;
 		cursor: pointer;
 
 		@media (max-width: @umbral-2){
-			 width: 15%;
+			 width: @anchura_imagen_recargar_pantalla_pequenha;
 		}
 	}
 
 	input{
-		width:80%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    border: none;
-		padding:10px 20px;
-		color:#777777;
+		width: @anchura_texto_captcha;
 		margin: 0 3%;
-
-		@media (max-width: @umbral-2){
-			width: 200px;
-			padding:10px;
-		}
 	}
 }
 

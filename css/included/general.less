@@ -35,57 +35,57 @@ a{
 }
 
 #cuerpo{
-	margin:0 auto 50px;
+	margin:0 auto @margen;
 	background-image: url('../img/bg.png');
 	background-repeat: repeat-x;
 	background-position: top;
-	width: 1510px;
+	width: @anchura-9-maxima - 2 * @anchura-cabecera-lateral-9 - 2*@anchura-cabecera-pico-9 + 4px;
 	padding-top:@altura-cabecera-centro-9 + @margen;
-	padding-bottom:20px;
+	padding-bottom: @margen / 2;
 
 	@media (max-width: @umbral-9){
-		width: 1132px;
+		width: @anchura-8 - 2 * @anchura-cabecera-lateral-8 - 2*@anchura-cabecera-pico-8 + 4px;
 		padding-top:@altura-cabecera-centro-8 + @margen;
 	}
 
 	@media (max-width: @umbral-8){
-		width: 851px;
+		width: @anchura-7 - 2 * @anchura-cabecera-lateral-7 - 2*@anchura-cabecera-pico-7 + 5px;
 		padding-top:@altura-cabecera-centro-7 + @margen;
 	}
 
 	@media (max-width: @umbral-7){
-		width: 756px;
+		width: @anchura-6 - 2 * @anchura-cabecera-lateral-6 - 2*@anchura-cabecera-pico-6 + 6px;
 		padding-top:@altura-cabecera-centro-6 + @margen;
 	}
 
 	@media (max-width: @umbral-6){
-		width: 708px;
+		width: @anchura-5 - 2 * @anchura-cabecera-lateral-5 - 2*@anchura-cabecera-pico-5 + 6px;
 		padding-top:@altura-cabecera-centro-5 + @margen;
 	}
 
 	@media (max-width: @umbral-5){
-		width: 566px;
+		width: @anchura-4 - 2 * @anchura-cabecera-lateral-4 - 2*@anchura-cabecera-pico-4 + 4px;
 		padding-top:@altura-cabecera-centro-4 + @margen;
 	}
 
 	@media (max-width: @umbral-4){
-		width: 472px;
+		width: @anchura-3 - 2 * @anchura-cabecera-lateral-3 - 2*@anchura-cabecera-pico-3 + 6px;
 		padding-top:@altura-cabecera-centro-3 + @margen;
 	}
 
 	@media (max-width: @umbral-3){
-		width: 358px;
+		width: @anchura-2 - 2 * @anchura-cabecera-lateral-2 - 2*@anchura-cabecera-pico-2	 + 4px;
 		padding-top:@altura-cabecera-centro-2 + @margen;
 	}
 
 	@media (max-width: @umbral-2){
-		width: 235px;
+		width: @anchura-1 - 2 * @anchura-cabecera-lateral-1 - 2*@anchura-cabecera-pico-1	 + 5px;
 		padding-top:@altura-cabecera-centro-1 + @margen;
 	}
 }
 
 .div_boton{
-	background-color:#00455B;
+	background-color:@fondo_boton;
 	padding:2%;
 	padding-top:1%;
 	margin:2% auto;

@@ -5,7 +5,7 @@
 	margin:2% auto;
 
 	input{
-		width:90%;
+		width:@anchura_input;
     margin:0 auto;
 		color:white;
 		font-size: xx-large;
@@ -14,15 +14,16 @@
 }
 
 #div_resultado_numero_telefono{
-	background-color:#007C90;
+	background-color:@fondo_bloque_1;
 	
 	input{
-		background:#2DB200;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    border: 1px solid #50CC2B;
+		background:@fondo_resultado_numero_telefono;
+		
+    -moz-border-radius: @radio_input;
+    -webkit-border-radius: @radio_input;
+    border-radius: @radio_input;
     
+    border: 1px solid @borde_resultado_numero_telefono;
 		padding:10px 20px;
 		
 		cursor:hand;
@@ -31,7 +32,7 @@
 }
 
 #div_resultado_compania{
-	background-color:#00556B;
+	background-color:@fondo_bloque_2;
 
 	input{
     border: none;
