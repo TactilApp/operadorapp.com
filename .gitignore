@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+
+*.bak
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
