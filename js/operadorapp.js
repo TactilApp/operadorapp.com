@@ -142,10 +142,10 @@ function mostrarResultado(telefono, resultado) {
 	$("#boton_siguiente").css("display", "none");
 	
 	$("#div_resultado_numero_telefono > input").val(telefono);
+	$("#div_resultado_numero_telefono > input").attr("onClick","window.location.href='tel:" + telefono + "'");
 	$("#div_resultado_numero_telefono").css("display", "block");
 	
 	$("#company").val(resultado);
-
 
 	var color_superior = "868382";
 	var color_inferior = "d0cccb";
@@ -158,21 +158,27 @@ function mostrarResultado(telefono, resultado) {
 		color_superior = companhia.color_superior;
 		color_inferior = companhia.color_inferior;
 	}
-
-	var degradado_webkit = "-webkit-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-	var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, #"+ color_superior +" ),color-stop(0.5, #"+ color_inferior +" ))";
-	var degradado_ms = "-ms-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-	var degradado_o = "-o-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-	var degradado_mozilla    = "-moz-linear-gradient(top, #" + color_superior + " 50%, #"+ color_inferior + " 50%)";
-	var degradado_base = "linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
 	
-	$('#company')
-		.css({ background: degradado_webkit })
-		.css({ background: degradado_webkit_base })
-		.css({ background: degradado_ms })
-		.css({ background: degradado_o })
-		.css({ background: degradado_mozilla })
-		.css({ background: degradado_base });
+  if (navigator.appName=="Microsoft Internet Explorer") {
+		$('#company').css({ background: '#' + color_superior });
+  }else{
+		var degradado_webkit = "-webkit-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
+		var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, #"+ color_superior +" ),color-stop(0.5, #"+ color_inferior +" ))";
+		var degradado_ms = "-ms-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
+		var degradado_o = "-o-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
+		var degradado_mozilla    = "-moz-linear-gradient(top, #" + color_superior + " 50%, #"+ color_inferior + " 50%)";
+		var degradado_base = "linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
+		
+		$('#company')
+			.css({ background: degradado_webkit })
+			.css({ background: degradado_webkit_base })
+			.css({ background: degradado_ms })
+			.css({ background: degradado_o })
+			.css({ background: degradado_mozilla })
+			.css({ background: degradado_base });  	
+  }
+
+
 	
 	$("#div_resultado_compania").css("display", "block");
 

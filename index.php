@@ -3,10 +3,12 @@
 	<head>
 		<meta charset=utf-8>
 		<title>Operadorapp</title>
-		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-		<meta content="Descubre de qué operador es un número de teléfono móvil en España. ¡Gratis!" name="description">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="Descubre de qué operador es un número de teléfono móvil en España. ¡Gratis!"/>
+		<link rel="shortcut icon" href="img/favicon.png" />
 		<meta name="author" content="Tactilapp">
-		<link href="img/favicon.png" rel="shortcut icon">
+		
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.8.1/build/cssreset/cssreset-min.css" />
 		
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,9 +27,7 @@
 		</script>
 		<link rel="stylesheet/less" type="text/css" href="css/style.less" />
 
-		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="js/less-1.3.3.min.js"></script>
-		<script type="text/javascript" src="js/operadorapp.js"></script>
 	</head>
 
 	<body>
@@ -58,7 +58,7 @@
 
 			<div id="div_resultado_numero_telefono">
 				<h1>Tu número de teléfono es</h1>
-				<input type="text" onclick="window.location.href='tel:626123456'" onfocus="this.blur()" readonly="readonly" id="numero" name="numero" >
+				<input type="text" onfocus="this.blur()" readonly="readonly" id="numero" name="numero" >
 			</div>
 
 			<div id="div_resultado_compania">
@@ -71,7 +71,25 @@
 			</div>
 		</form>
 
-		<img id="logotipo" src="img/img_tactilapp.png" alt="logotipo">
+		<div id="download">
+			<a href="http://appstore.com/operadorapp"><img src="img/appstore.png" alt="App Store" /></a>
+			<a href="http://play.google.com/store/apps/details?id=com.tactilapp.operadorapp"><img src="img/googleplay.png" alt="Google Play" /></a>
+		</div>
+		
+		<a id="logotipo" href="http://www.tactilapp.com"><img src="img/img_tactilapp.png" alt="Tactilapp" /></a>
 
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/operadorapp.js"></script>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-40834928-1', 'operadorapp.com');
+		  ga('send', 'pageview');
+		</script>
 	</body>
 </html>

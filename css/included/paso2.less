@@ -10,6 +10,10 @@
 		color:white;
 		font-size: xx-large;
 		text-align:center;
+		
+		@media (max-width: @umbral-2){
+			width: @anchura_input_minimo;
+		}
 	}
 }
 
@@ -28,6 +32,10 @@
 		
 		cursor:hand;
 		cursor: pointer;
+		
+		@media (max-width: @umbral-2){
+			padding:10px;
+		}
 	}
 }
 
@@ -37,5 +45,10 @@
 	input{
     border: none;
 		padding:30px 20px;
+
+		@media (max-width: @umbral-2){
+			padding:15px 10px;
+		}
+
 	}
 }

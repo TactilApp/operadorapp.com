@@ -8,7 +8,8 @@
 }
 
 html{
-	font-size: 62.5%; // Trick for treat rem as px (http://snook.ca/archives/html_and_css/font-size-with-rem)
+	font-size: 62.5%; // Trick for treat rem as px (http://snook.ca/archives/html_and_css/font-size-with-rem);
+	background-color: @fondo;
 }
 
 body{
@@ -35,52 +36,52 @@ a{
 }
 
 #cuerpo{
-	margin:0 auto @margen;
+	margin:@margen auto;
 	background-image: url('../img/bg.png');
 	background-repeat: repeat-x;
 	background-position: top;
 	width: @anchura-9-maxima - 2 * @anchura-cabecera-lateral-9 - 2*@anchura-cabecera-pico-9 + 4px;
-	padding-top:@altura-cabecera-centro-9 + @margen;
+	padding-top:@altura-cabecera-centro-9;
 	padding-bottom: @margen / 2;
 
 	@media (max-width: @umbral-9){
 		width: @anchura-8 - 2 * @anchura-cabecera-lateral-8 - 2*@anchura-cabecera-pico-8 + 4px;
-		padding-top:@altura-cabecera-centro-8 + @margen;
+		padding-top:@altura-cabecera-centro-8;
 	}
 
 	@media (max-width: @umbral-8){
 		width: @anchura-7 - 2 * @anchura-cabecera-lateral-7 - 2*@anchura-cabecera-pico-7 + 5px;
-		padding-top:@altura-cabecera-centro-7 + @margen;
+		padding-top:@altura-cabecera-centro-7;
 	}
 
 	@media (max-width: @umbral-7){
 		width: @anchura-6 - 2 * @anchura-cabecera-lateral-6 - 2*@anchura-cabecera-pico-6 + 6px;
-		padding-top:@altura-cabecera-centro-6 + @margen;
+		padding-top:@altura-cabecera-centro-6;
 	}
 
 	@media (max-width: @umbral-6){
 		width: @anchura-5 - 2 * @anchura-cabecera-lateral-5 - 2*@anchura-cabecera-pico-5 + 6px;
-		padding-top:@altura-cabecera-centro-5 + @margen;
+		padding-top:@altura-cabecera-centro-5;
 	}
 
 	@media (max-width: @umbral-5){
 		width: @anchura-4 - 2 * @anchura-cabecera-lateral-4 - 2*@anchura-cabecera-pico-4 + 4px;
-		padding-top:@altura-cabecera-centro-4 + @margen;
+		padding-top:@altura-cabecera-centro-4;
 	}
 
 	@media (max-width: @umbral-4){
 		width: @anchura-3 - 2 * @anchura-cabecera-lateral-3 - 2*@anchura-cabecera-pico-3 + 6px;
-		padding-top:@altura-cabecera-centro-3 + @margen;
+		padding-top:@altura-cabecera-centro-3;
 	}
 
 	@media (max-width: @umbral-3){
 		width: @anchura-2 - 2 * @anchura-cabecera-lateral-2 - 2*@anchura-cabecera-pico-2	 + 4px;
-		padding-top:@altura-cabecera-centro-2 + @margen;
+		padding-top:@altura-cabecera-centro-2;
 	}
 
 	@media (max-width: @umbral-2){
 		width: @anchura-1 - 2 * @anchura-cabecera-lateral-1 - 2*@anchura-cabecera-pico-1	 + 5px;
-		padding-top:@altura-cabecera-centro-1 + @margen;
+		padding-top:@altura-cabecera-centro-1;
 	}
 }
 
@@ -99,7 +100,15 @@ a{
 	}
 }
 
-#logotipo{
+#download{	
+	img{
+		margin:20px;
+		width: 10%;
+		min-width: 150px;
+	}
+}
+
+#logotipo img{
 	margin:0 auto 50px;
 	width:15%;
 	min-width: 150px;
