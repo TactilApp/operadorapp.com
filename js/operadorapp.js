@@ -1,4 +1,4 @@
-var api_url = 'http://www.operadorapp.com/api/v1';
+ï»¿var api_url = './api/v1';
 var listado_de_operadoras  = new Array();
 
 $(document).ready(function() {
@@ -13,7 +13,6 @@ $(document).ready(function() {
 });
 
 function reloadCaptcha(){
-	api_url = "js/captcha.json";
 	$.getJSON(api_url, function(data) {
 		captcha_url = data['captcha_url'];
 		$('#captcha').html('<img src="' + captcha_url + '" alt="captcha" />');
@@ -70,11 +69,6 @@ function cargarOperadoras() {
 					}
 				}
 			});
-
-		 /** for (i=0;i<listado_de_operadoras.length;i++){
-		  	alert('La compañía ' + listado_de_operadoras[i].nombre + ' tiene por arriba color ' + listado_de_operadoras[i].color_superior + ' y por abajo color ' + listado_de_operadoras[i].color_inferior);
-			}**/
-
 		}
 	});
 };
@@ -98,7 +92,7 @@ function comprobarOperadora() {
 	telefono = $("#mobile").val();
 	hay_telefono = false;
 	if(!telefono){
-		alert('Debe rellenar el número de teléfono para poder continuar.');
+		alert('Debe rellenar el nÃºmero de telÃ©fono que quiere comprobar.');
 	}else{
 		hay_telefono = true;
 	}
@@ -106,29 +100,23 @@ function comprobarOperadora() {
 	captcha = $("#captcha_str").val();
 	hay_captcha = false;
 	if(!captcha){
-		alert('Debe rellenar el captcha para poder continuar.');
+		alert('Debe rellenar el captcha.');
 	}else{
 		hay_captcha = true;
 	}
 	
 	if(hay_telefono && hay_captcha){
-		api_url = 'js/companhia.json';
-		var resultado = "MASMOVIL";	
-
 		$.post(api_url, {
 			"captcha_str" : captcha,
 			"mobile" : telefono
 		}, function(data){
 			if (data.errors){
-				resultado = null;
 				alert(data.errors);
 			}else{
-				resultado = data.result.company;
+				mostrarResultado(telefono, data.result.company);
 			}
 			reloadCaptcha();
-		}, "json");
-		
-		mostrarResultado(telefono, resultado);
+		}, "json");		
 	}
 };
 
