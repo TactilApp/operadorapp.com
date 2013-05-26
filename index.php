@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta charset=utf-8>
@@ -9,7 +9,7 @@
 		<meta name="author" content="Tactilapp">
 		
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.8.1/build/cssreset/cssreset-min.css" />
-		
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -31,13 +31,13 @@
 	</head>
 
 	<body>
-	
+
 		<div id="cabecera">
-		    <div class="lado"></div>
-		    <div class="centro"></div>
-		    <div class="lado"></div>
+		    <div id="cabecera_lado_izquierdo"></div>
+		    <div id="cabecera_centro"><img width="100%" src="img/bg_header.png"></div>
+		    <div id="cabecera_lado_derecho"></div>
 		</div>
-	
+
 		<form method="POST" id="cuerpo">
 			<div id="div_numero_telefono">
 				<h1>Introduce el número de teléfono</h1>
@@ -67,7 +67,7 @@
 			</div>
 
 			<div id="boton_anterior" class="div_boton">
-				<h1>Buscar otro numero número <img src="img/ic_up.png"></h1>
+				<h1>Buscar otro número <img src="img/ic_up.png"></h1>
 			</div>
 		</form>
 
@@ -75,10 +75,11 @@
 			<a href="http://appstore.com/operadorapp"><img src="img/appstore.png" alt="App Store" /></a>
 			<a href="http://play.google.com/store/apps/details?id=com.tactilapp.operadorapp"><img src="img/googleplay.png" alt="Google Play" /></a>
 		</div>
-		
+
 		<a id="logotipo" href="http://www.tactilapp.com"><img src="img/img_tactilapp.png" alt="Tactilapp" /></a>
 
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
 		<script type="text/javascript" src="js/underscore-min.js"></script>
 		<script type="text/javascript" src="js/operadorapp.js"></script>
 
