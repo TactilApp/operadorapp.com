@@ -13,6 +13,11 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+
+<?php
+	$local = FALSE;
+	if ($local):
+?>
 		<script type="text/javascript">
 		    less = { 
 		        env: "development", // or "production"
@@ -28,6 +33,12 @@
 		<link rel="stylesheet/less" type="text/css" href="css/style.less" />
 
 		<script type="text/javascript" src="js/less-1.3.3.min.js"></script>
+<?php
+	else:
+		echo '<link href="css/style.css" rel="stylesheet" media="screen">'
+	endif;
+?>
+
 	</head>
 
 	<body>
