@@ -3,7 +3,25 @@ var nombre_plist = 'js/companies-color.plist';
 var listado_de_operadoras  = new Array();
 
 window.onload = function() {
+	colocarLosLateralesDeLaCabecera();
+	colocarElContenidoBajoLaCabecera();
+}
+
+window.onorientationchange = function(){
+	colocarLosLateralesDeLaCabecera();
+	colocarElContenidoBajoLaCabecera();
+}
+
+window.onresize = function(event) {
+	colocarLosLateralesDeLaCabecera();
+	colocarElContenidoBajoLaCabecera();
+}
+
+function colocarLosLateralesDeLaCabecera(){
 	$("#cabecera").css("height", $("#cabecera_centro").css("height"));
+}
+
+function colocarElContenidoBajoLaCabecera(){
 	$("#cuerpo").css("padding-top", $("#cabecera_centro").css("height"));
 }
 

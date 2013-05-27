@@ -14,31 +14,29 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-<?php
-	$local = FALSE;
-	if ($local):
-?>
-		<script type="text/javascript">
-		    less = { 
-		        env: "development", // or "production"
-		        async: true,       // load imports async
-		        fileAsync: false,   // load imports async when in a page under
-		                            // a file protocol
-		        poll: 1000,         // when in watch mode, time in ms between polls
-		        functions: {},      // user functions, keyed by name
-		        dumpLineNumbers: "comments", // or "mediaquery" or "all"
-		        relativeUrls: false,// whether to adjust url's to be relative
-		    };
-		</script>
-		<link rel="stylesheet/less" type="text/css" href="css/style.less" />
-
-		<script type="text/javascript" src="js/less-1.3.3.min.js"></script>
-<?php
-	else:
-		echo '<link href="css/style.css" rel="stylesheet" media="screen">'
-	endif;
-?>
-
+		<?php
+			$local = TRUE;
+			if ($local):
+		?>
+				<script type="text/javascript">
+				    less = { 
+				        env: "development", // or "production"
+				        async: true,       // load imports async
+				        fileAsync: false,   // load imports async when in a page under
+				                            // a file protocol
+				        poll: 1000,         // when in watch mode, time in ms between polls
+				        functions: {},      // user functions, keyed by name
+				        dumpLineNumbers: "comments", // or "mediaquery" or "all"
+				        relativeUrls: false,// whether to adjust url's to be relative
+				    };
+				</script>
+				<link rel="stylesheet/less" type="text/css" href="css/style.less" />
+				<script type="text/javascript" src="js/less-1.3.3.min.js"></script>
+		<?php
+			else:
+				echo '<link href="css/style.css" rel="stylesheet" type="text/css">';
+			endif;
+		?>			
 	</head>
 
 	<body>
