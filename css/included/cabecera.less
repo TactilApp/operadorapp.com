@@ -8,21 +8,7 @@
 }
 
 .lado{
-	display:inline-block;
-	background-image: url('../img/bg_header_tile_x.png');
-	background-repeat: repeat-x;
-	background-position: bottom;
-	background-size:100%;
-	height:44.4%;
-	width: 12.5%;
 
-	@media (max-width: @umbral-2){
-		width: 12.25%;
-	}
-
-	@media (max-width: @umbral-1){
-		width: 12%;
-	}
 }
 
 #cabecera_lado_izquierdo{
@@ -35,6 +21,7 @@
 
 	@media (max-width: @umbral-1){
 		margin-right:-2.9%;
+		display: hidden;
 	}
 }
 
@@ -48,11 +35,13 @@
 
 	@media (max-width: @umbral-1){
 		margin-left:-2.9%;
+		display: hidden;
 	}
 }
 
 #cabecera_centro{
 	position:relative;
 	display:inline-block;
-	width: 79%;
+	width: 90%;
+	max-width: 424px;
 }
