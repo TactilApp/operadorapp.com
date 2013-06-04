@@ -48,6 +48,7 @@ function comprobarOperadora() {
 		$.blockUI({ message: '<h1>Su petición se está procesando...</h1>' });
 		$.post(api_url, {
 			"captcha_str" : $("#captcha_str").val(),
+			"platform" : "web",
 			"telephone" : $("#mobile").val()
 		}, function(data){
 			if (data.errors){
