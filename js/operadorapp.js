@@ -120,16 +120,16 @@ function fijarElNumeroDeTelefonoParaLlamar(telefono) {
 
 function fijarElDegradadoDeLaCompanhia(cadena_companhia, colorSuperior, colorInferior) {
 	$("#company").val(cadena_companhia);
-
-  if (navigator.appName=="Microsoft Internet Explorer") {
-		$('#company').css({ background: color_superior });
+	
+	if (navigator.appName=="Microsoft Internet Explorer") {
+		$('#company').css({ background: colorSuperior });
   }else{
-		var degradado_webkit = "-webkit-linear-gradient(top, "+ color_superior +" 50%, "+ color_inferior +" 50%)";
-		var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, " + color_superior +" ),color-stop(0.5, "+ color_inferior +" ))";
-		var degradado_ms = "-ms-linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
-		var degradado_o = "-o-linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
-		var degradado_mozilla    = "-moz-linear-gradient(top, " + color_superior + " 50%, " + color_inferior + " 50%)";
-		var degradado_base = "linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
+		var degradado_webkit = "-webkit-linear-gradient(top, " + colorSuperior + " 50%, "+ colorInferior +" 50%)";
+		var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, " + colorSuperior +" ),color-stop(0.5, "+ colorInferior +" ))";
+		var degradado_ms = "-ms-linear-gradient(top, "+ colorSuperior +" 50%, " + colorInferior +" 50%)";
+		var degradado_o = "-o-linear-gradient(top, "+ colorSuperior +" 50%, " + colorInferior +" 50%)";
+		var degradado_mozilla    = "-moz-linear-gradient(top, " + colorSuperior + " 50%, " + colorInferior + " 50%)";
+		var degradado_base = "linear-gradient(top, "+ colorSuperior +" 50%, " + colorInferior +" 50%)";
 		
 		$('#company')
 			.css({ background: degradado_webkit })
