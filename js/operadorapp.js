@@ -1,6 +1,4 @@
-﻿var api_url = './api/v1';
-var nombre_plist = 'js/companies-color.plist';
-var listado_de_operadoras  = new Array();
+﻿var api_url = './api/v2';
 
 window.onload = function() {
 	colocarLosLateralesDeLaCabecera();
@@ -31,7 +29,6 @@ $(document).ready(function() {
   $("#boton_siguiente").click(comprobarOperadora);
   $("#boton_anterior").click(mostrarCamposIniciales);
 
-  cargarOperadoras();
  	reloadCaptcha();
 });
 
@@ -43,12 +40,6 @@ function reloadCaptcha(){
 	});
 };
 
-function buscarLaCompanhiaEnElXML(nombre_de_la_companhia){
-    return $.grep(listado_de_operadoras, function(item){
-      return item.nombre == nombre_de_la_companhia;
-    });
-};
-
 function comprobarOperadora() {
 	var hay_telefono = comprobarSiHaRellenadoElNumeroDeTelefono();
 	var hay_captcha =  comprobarSiHaRellenadoElCaptcha();
@@ -57,12 +48,12 @@ function comprobarOperadora() {
 		$.blockUI({ message: '<h1>Su petición se está procesando...</h1>' });
 		$.post(api_url, {
 			"captcha_str" : $("#captcha_str").val(),
-			"mobile" : $("#mobile").val()
+			"telephone" : $("#mobile").val()
 		}, function(data){
 			if (data.errors){
 				alert(data.errors);
 			}else{
-				mostrarResultado($("#mobile").val(), data.result.company);
+				mostrarResultado($("#mobile").val(), data.result.company, data.result.topColor, data.result.bottomColor);
 			}
 			reloadCaptcha();
 			$.unblockUI();
@@ -108,9 +99,9 @@ function mostrarCamposIniciales() {
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 };
 
-function mostrarResultado(telefono, cadena_companhia) {	
+function mostrarResultado(telefono, cadena_companhia, colorSuperior, colorInferior) {	
 	fijarElNumeroDeTelefonoParaLlamar(telefono);
-	fijarElDegradadoDeLaCompanhia(cadena_companhia);
+	fijarElDegradadoDeLaCompanhia(cadena_companhia, colorSuperior, colorInferior);
 
 	$("#div_numero_telefono").css("display", "none");
 	$("#div_captcha").css("display", "none");
@@ -126,31 +117,18 @@ function fijarElNumeroDeTelefonoParaLlamar(telefono) {
 	$("#div_resultado_numero_telefono").css("display", "block");	
 };
 
-function fijarElDegradadoDeLaCompanhia(cadena_companhia) {
-	var color_superior = "868382";
-	var color_inferior = "d0cccb";
-	var nombre_de_la_companhia = cadena_companhia;
-
-	var companhia = buscarLaCompanhiaEnElXML(cadena_companhia.trim())[0];
-	if(companhia==null){
-		companhia = buscarLaCompanhiaEnElXML("Default")[0];
-	}		
-	if(companhia != null){
-		nombre_de_la_companhia = companhia.nombre_a_mostrar;
-		color_superior = companhia.color_superior;
-		color_inferior = companhia.color_inferior;
-	}
-	$("#company").val(nombre_de_la_companhia);
+function fijarElDegradadoDeLaCompanhia(cadena_companhia, colorSuperior, colorInferior) {
+	$("#company").val(cadena_companhia);
 
   if (navigator.appName=="Microsoft Internet Explorer") {
-		$('#company').css({ background: '#' + color_superior });
+		$('#company').css({ background: color_superior });
   }else{
-		var degradado_webkit = "-webkit-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-		var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, #"+ color_superior +" ),color-stop(0.5, #"+ color_inferior +" ))";
-		var degradado_ms = "-ms-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-		var degradado_o = "-o-linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
-		var degradado_mozilla    = "-moz-linear-gradient(top, #" + color_superior + " 50%, #"+ color_inferior + " 50%)";
-		var degradado_base = "linear-gradient(top, #"+ color_superior +" 50%, #"+ color_inferior +" 50%)";
+		var degradado_webkit = "-webkit-linear-gradient(top, "+ color_superior +" 50%, "+ color_inferior +" 50%)";
+		var degradado_webkit_base = "-webkit-gradient(linear, left top, left bottom, color-stop(0.5, " + color_superior +" ),color-stop(0.5, "+ color_inferior +" ))";
+		var degradado_ms = "-ms-linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
+		var degradado_o = "-o-linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
+		var degradado_mozilla    = "-moz-linear-gradient(top, " + color_superior + " 50%, " + color_inferior + " 50%)";
+		var degradado_base = "linear-gradient(top, "+ color_superior +" 50%, " + color_inferior +" 50%)";
 		
 		$('#company')
 			.css({ background: degradado_webkit })
@@ -158,68 +136,6 @@ function fijarElDegradadoDeLaCompanhia(cadena_companhia) {
 			.css({ background: degradado_ms })
 			.css({ background: degradado_o })
 			.css({ background: degradado_mozilla })
-			.css({ background: degradado_base });  	
+			.css({ background: degradado_base });
   }
-};
-
-function cargarOperadoras() {
-	$.ajax({
-		type: "GET",
-		url: nombre_plist,
-		dataType: "xml",
-		success: function(plist) {
-			var companhia_en_proceso = false;
-			var cadenas_en_proceso = false;
-	
-			var nombre_de_la_companhia = '';
-			var color_inferior = '';
-			var color_superior = '';
-			
-			$(plist).find("key").each(function () {
-				
-				if(!companhia_en_proceso){
-					companhia_en_proceso = true;
-					cadenas_en_proceso = false;
-					
-					color_inferior = '';
-					color_superior = '';
-					
-					nombre_de_la_companhia =  $(this).text();
-				}else{
-					var etiqueta = $(this).text();
-					var posicion = $(this).index();
-					
-					if(etiqueta == 'bottom'){
-						color_inferior =  $(this).parent().find("string").eq(posicion/2).text();
-					}else if(etiqueta == 'top'){
-						color_superior =  $(this).parent().find("string").eq(posicion/2).text();
-						var listado = $(this).parent().find("array");
-						if(listado.length == 0){
-							companhia_en_proceso = false;
-							finalizarCompanhia(nombre_de_la_companhia, color_inferior, color_superior, null);
-						}							
-					}else if(etiqueta == 'strings'){
-						var cadenas = new Array();
-						cadenas_en_proceso = true;
-						var numero_de_cadenas = 0;
-						$(this).parent().find("array").first().find("string").each(function () {
-								cadenas[numero_de_cadenas] = $(this).text();
-								numero_de_cadenas =  numero_de_cadenas + 1;
-						});
-						companhia_en_proceso = false;
-						finalizarCompanhia(nombre_de_la_companhia, color_inferior, color_superior, cadenas);
-					}
-				}
-			});
-		}
-	});
-};
-
-function finalizarCompanhia(nombre_de_la_companhia, color_inferior, color_superior, cadenas){
-	listado_de_operadoras[listado_de_operadoras.length] = {nombre: nombre_de_la_companhia, nombre_a_mostrar:nombre_de_la_companhia, color_superior: color_superior,  color_inferior: color_inferior};
-	if(cadenas != null && cadenas.length > 0){
-	  for (i=0;i<cadenas.length;i++){
-	  	listado_de_operadoras[listado_de_operadoras.length] = {nombre: cadenas[i], nombre_a_mostrar:nombre_de_la_companhia, color_superior: color_superior,  color_inferior: color_inferior};
-		}
-	}
 };
