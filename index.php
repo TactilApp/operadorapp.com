@@ -4,7 +4,7 @@
 		<meta charset=utf-8>
 		<title>Operadorapp</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="description" content="Descubre de qué operador es un número de teléfono móvil en España. ¡Gratis!"/>
+		<meta name="description" content="Descubre de qué operador es un número de teléfono en España. ¡Gratis!"/>
 		<link rel="shortcut icon" href="img/favicon.png" />
 		<meta name="author" content="Tactilapp">
 		
@@ -15,7 +15,7 @@
 		<![endif]-->
 
 		<?php
-			$local = TRUE;
+			$local = FALSE;
 			if ($local):
 		?>
 				<script type="text/javascript">
