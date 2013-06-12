@@ -1,4 +1,5 @@
-﻿var api_url = './api/v2';
+﻿var api_url = 'http://operadorapproxy.herokuapp.com/api/v2';
+var challenge = null;
 
 window.onload = function() {
 	colocarLosLateralesDeLaCabecera();
@@ -35,6 +36,7 @@ $(document).ready(function() {
 function reloadCaptcha(){
 	$.getJSON(api_url, function(data) {
 		captcha_url = data['captcha_url'];
+		challenge = data['challenge'];
 		$('#captcha').html('<img src="' + captcha_url + '" alt="captcha" />');
 		$("#captcha_str").val('');
 	});
@@ -49,7 +51,8 @@ function comprobarOperadora() {
 		$.post(api_url, {
 			"captcha_str" : $("#captcha_str").val(),
 			"platform" : "web",
-			"telephone" : $("#mobile").val()
+			"telephone" : $("#mobile").val(),
+			"challenge" : challenge
 		}, function(data){
 			if (data.errors){
 				alert(data.errors);
