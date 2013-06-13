@@ -1,0 +1,6 @@
+AddDefaultCharset UTF-8
+RewriteEngine on
+
+RewriteBase /
+RewriteRule ^api/v([0-9]+) http://operadorapproxy.herokuapp.com/api/v$1 [L]
+ErrorDocument 404 http://operadorapp.com
